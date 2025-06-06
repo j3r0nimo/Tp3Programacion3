@@ -43,7 +43,7 @@ class Server {
     
     // Ajustes de sesion para presentar mensajes flash (Usuario borrado, por ej)
     this.app.use(session({
-      secret: process.env.SESSION_SECRET,
+      secret: process.env.SECRETE_WORD,
       resave: false,
       saveUninitialized: true
     }));
