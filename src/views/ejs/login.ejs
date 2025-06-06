@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+    <h2><%= message %></h2>
+    </header> 
+    
+    <main>  
+
+    <form class="card" method="POST" action="/login"> 
+        <h2>Iniciar Sesión</h2>   
+        <input type="email" name="email" placeholder="Correo electrónico" required/>
+        <input type="password" name="password" placeholder="Contraseña" minlength="8" required/>
+        <button type="submit">Ingresar</button>        
+    </form> 
+        
+        <% if (error) { %>
+            <div class="error-message">
+            <%= error %>
+            </div>
+        <% } %> 
+    </main>
+
+    <footer>
+        <p>© <%= new Date().getFullYear() %> Clínica Salud+ - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
