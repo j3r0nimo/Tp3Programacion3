@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página no encontrada</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h2>Error 404 - Esa Página no existe</h2>
+    <nav>
+      <a href="/pacientes">Listado de pacientes</a>                   
+      <a href="/pacientes/create">Crear nuevo paciente</a>
+      <a href="/pacientes/search">Buscar / Borrar Paciente</a> 
+      <a href="/pacientes/logout">Cerrar sesión</a> 
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+    <img src="/img/404.png" alt="Página no encontrada" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;">
+     <h3>Oops 😕</h3>           
+    </section>
+  </main>
+
+  <footer>
+    <p>© <%= new Date().getFullYear() %> Clínica Salud+</p>
+  </footer>
+</body>
+</html>
