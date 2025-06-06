@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title %></title> 
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <header>
+    <h2>Clínica Salud+</h2>
+    <nav>
+      <a href="/pacientes">Listado de pacientes</a>                   
+      <a href="/pacientes/create">Crear nuevo paciente</a>
+      <a href="/pacientes/search">Buscar / Borrar Paciente</a>
+      <a href="/pacientes/logout">Cerrar sesión</a> 
+    </nav>
+  </header>
+  <main>
+  <% if (locals.error && locals.error.length > 0) { %>
+    <div class="flash error" style="background-color: #f2dede; color: #a94442; padding: 10px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+      <%= error[0] %>
+    </div>
+  <% } %>
+
+  <% if (locals.success && locals.success.length > 0) { %>
+    <div class="flash success" style="background-color: #dff0d8; color: #3c763d; padding: 10px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+      <%= success[0] %>
+    </div>
+  <% } %>
+
+  <h2 style="text-align:center;">Listado de Pacientes</h2>
+
+    <table>
+      <thead>
+        <tr>        
+          <th>ID</th><th>Nombre</th><th>Email</th><th>Eliminar</th>
+        </tr>
+      </thead>  
+      <tbody>
+        <% if (pacientes.length === 0) { %>
+          <tr><td colspan="3" style="text-align:center;">No hay pacientes</td></tr>
+        <% } else { %>
+          <% pacientes.forEach(paciente => { %>
+            <tr>
+              <td><%= paciente.id %></td>
+              <td><%= paciente.name %></td>
+              <td><%= paciente.email %></td>
+              <td><a href="/pacientes/<%= paciente.id %>/edit">Editar</a></td>
+            </tr>
+          <% }) %>
+        <% } %>
+      </tbody>
+    </table>
+  </main>
+  <footer>
+        <p>© <%= new Date().getFullYear() %> Clínica Salud+ - Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

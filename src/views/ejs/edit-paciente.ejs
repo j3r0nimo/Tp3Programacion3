@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Editar paciente</title> 
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2>Clínica Salud+</h2>
+        <nav>
+          <a href="/pacientes">Listado de pacientes</a>                   
+          <a href="/pacientes/create">Crear nuevo paciente</a>
+          <a href="/pacientes/search">Buscar / Borrar Paciente</a> 
+          <a href="/pacientes/logout">Cerrar sesión</a> 
+        </nav>
+    </header>
+
+    <main> 
+      
+      <% if (locals.error && locals.error.length > 0) { %>
+        <div class="flash error" style="background-color: #f2dede; color: #a94442; padding: 10px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+          <%= error[0] %>
+        </div>
+      <% } %>
+
+      <% if (locals.success && locals.success.length > 0) { %>
+        <div class="flash success" style="background-color: #dff0d8; color: #3c763d; padding: 10px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+          <%= success[0] %>
+        </div>
+      <% } %>
+
+
+      <h2>Editar paciente</h2>
+
+      <form action="/pacientes/<%= paciente.id %>/edit" method="POST">
+        <div class="form-group"><label>Nombre:</label>
+        <input name="name" value="<%= paciente.name %>" required /></div>
+
+        <div class="form-group"><label>e-mail:</label>
+        <input name="email" type="email" value="<%= paciente.email %>" required /></div>
+
+        <div class="form-group"><label>Contraseña:</label>
+        <input name="password" type="password" placeholder="Dejar vacío para no cambiar" /></div>
+
+        <div class="form-button"><button type="submit">Actualizar</button></div>
+      </form>
+
+    </main>
+
+    <footer>
+            <p>© <%= new Date().getFullYear() %> Clínica Salud+ - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
